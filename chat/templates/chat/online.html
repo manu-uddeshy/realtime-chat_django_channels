@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div>
+    <p>Click the other User with whom you wanna chat to!</p>
+<ul class="list-group">
+{% for online_user in online_users %}
+    
+  <li class="list-group-item"> <a class="btn btn-primary" href="{% url 'chat:second' username=online_user.user %}"> {{online_user.user}} </a> <i class="fas fa-globe-europe"></i> <i> &emsp; last seen: </i>{{online_user.last_activity}} </li>
+  
+{% endfor %}
+</ul>
+</div>
+
+
+{% endblock %}
